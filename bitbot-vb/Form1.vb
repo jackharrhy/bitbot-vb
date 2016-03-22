@@ -1,10 +1,17 @@
 ﻿Public Class Foum1
     Dim WithEvents phidgetMotor As Phidgets.MotorControl
-
     Dim WithEvents phidgetMan As Phidgets.Manager
+
+    ' Custom Error handler
+    Private Sub HandleError(ByVal text As String)
+        Debug.WriteLine("Self-handled error: " + text)
+        ErrorLabel.Text = text
+    End Sub
 
     ' Once Form1 loads, createa new Phidget Manager and initiate the DataGridView
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        ErrorLabel.Text = ""
+
         phidgetMan = New Phidgets.Manager()
 
         phidgetMotor = New Phidgets.MotorControl
@@ -27,8 +34,25 @@
         StartButton.BackColor = Color.DarkSlateBlue
     End Sub
 
+    ' Subs that get called once things change on the motor controller
+    Private Sub phidgetMotor_CurrentChange(ByVal sender As Object, ByVal e As Phidgets.Events.CurrentChangeEventArgs) Handles phidgetMotor.CurrentChange
+        CurrentLabel.Text = "Current: " + e.Current.ToString("F3")
+    End Sub
+    Private Sub phidgetMotor_InputChange(ByVal sender As Object, ByVal e As Phidgets.Events.InputChangeEventArgs) Handles phidgetMotor.InputChange
+        InputLabel.Text = e.Value
+    End Sub
+    Private Sub phidgetMotor_VelocityChange(ByVal sender As Object, ByVal e As Phidgets.Events.VelocityChangeEventArgs) Handles phidgetMotor.VelocityChange
+        VelocityLabel.Text = e.Velocity.ToString("F2")
+    End Sub
+
     ' Add a new row to the DataGridView with info from the new device
     Private Sub phidgetMan_Attach(ByVal sender As Object, ByVal e As Phidgets.Events.AttachEventArgs) Handles phidgetMan.Attach
+        Try
+            phidgetMotor.open(e.Device.SerialNumber)
+        Catch ex As Exception
+            HandleError(ex.Message)
+        End Try
+
         Dim newrow() As String = {e.Device.Name, e.Device.SerialNumber.ToString()}
         AttachedGrid.Rows.Add(newrow)
     End Sub
@@ -45,7 +69,7 @@
 
     ' MessageBox popup on an error with the Phidget Manager
     Private Sub phidgetMan_Error(ByVal sender As Object, ByVal e As Phidgets.Events.ErrorEventArgs) Handles phidgetMan.Error
-        MessageBox.Show("Phidget Error!: " + e.Description)
+        HandleError(e.Description)
     End Sub
 
     ' Open the Phidget manager on the chosen IP address
@@ -54,9 +78,14 @@
         phidgetMan.open(IPTextBox.Text, 5001)
     End Sub
 
-    ' Close the Phidget Manager, then the window itself
+    ' Safely close the Phidget Manager, then the window itself
     Private Sub CloseButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CloseButton.Click
+        RemoveHandler phidgetMan.Attach, AddressOf phidgetMan_Attach
+        RemoveHandler phidgetMan.Detach, AddressOf phidgetMan_Detach
+        RemoveHandler phidgetMan.Error, AddressOf phidgetMan_Error
         phidgetMan.close()
+        Application.DoEvents()
         Me.Close()
     End Sub
+
 End Class

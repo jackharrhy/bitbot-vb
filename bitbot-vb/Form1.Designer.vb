@@ -27,6 +27,10 @@ Partial Class Foum1
         Me.IPLabel = New System.Windows.Forms.Label()
         Me.AttachedGrid = New System.Windows.Forms.DataGridView()
         Me.StartButton = New System.Windows.Forms.Button()
+        Me.ErrorLabel = New System.Windows.Forms.Label()
+        Me.CurrentLabel = New System.Windows.Forms.Label()
+        Me.InputLabel = New System.Windows.Forms.Label()
+        Me.VelocityLabel = New System.Windows.Forms.Label()
         CType(Me.AttachedGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -91,12 +95,56 @@ Partial Class Foum1
         Me.StartButton.Text = "Start"
         Me.StartButton.UseVisualStyleBackColor = False
         '
+        'ErrorLabel
+        '
+        Me.ErrorLabel.AutoSize = True
+        Me.ErrorLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ErrorLabel.ForeColor = System.Drawing.Color.Firebrick
+        Me.ErrorLabel.Location = New System.Drawing.Point(17, 298)
+        Me.ErrorLabel.Name = "ErrorLabel"
+        Me.ErrorLabel.Size = New System.Drawing.Size(151, 13)
+        Me.ErrorLabel.TabIndex = 6
+        Me.ErrorLabel.Text = "Removed during initiation"
+        Me.ErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'CurrentLabel
+        '
+        Me.CurrentLabel.AutoSize = True
+        Me.CurrentLabel.Location = New System.Drawing.Point(15, 311)
+        Me.CurrentLabel.Name = "CurrentLabel"
+        Me.CurrentLabel.Size = New System.Drawing.Size(47, 13)
+        Me.CurrentLabel.TabIndex = 7
+        Me.CurrentLabel.Text = "Current: "
+        '
+        'InputLabel
+        '
+        Me.InputLabel.AutoSize = True
+        Me.InputLabel.Location = New System.Drawing.Point(25, 324)
+        Me.InputLabel.Name = "InputLabel"
+        Me.InputLabel.Size = New System.Drawing.Size(37, 13)
+        Me.InputLabel.TabIndex = 8
+        Me.InputLabel.Text = "Input: "
+        '
+        'VelocityLabel
+        '
+        Me.VelocityLabel.AutoSize = True
+        Me.VelocityLabel.Location = New System.Drawing.Point(12, 337)
+        Me.VelocityLabel.Name = "VelocityLabel"
+        Me.VelocityLabel.Size = New System.Drawing.Size(50, 13)
+        Me.VelocityLabel.TabIndex = 9
+        Me.VelocityLabel.Text = "Velocity: "
+        '
         'Foum1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(288, 613)
         Me.ControlBox = False
+        Me.Controls.Add(Me.CurrentLabel)
+        Me.Controls.Add(Me.VelocityLabel)
+        Me.Controls.Add(Me.InputLabel)
+        Me.Controls.Add(Me.ErrorLabel)
         Me.Controls.Add(Me.StartButton)
         Me.Controls.Add(Me.AttachedGrid)
         Me.Controls.Add(Me.IPLabel)
@@ -117,5 +165,9 @@ Partial Class Foum1
     Friend WithEvents IPLabel As System.Windows.Forms.Label
     Friend WithEvents AttachedGrid As System.Windows.Forms.DataGridView
     Friend WithEvents StartButton As System.Windows.Forms.Button
+    Friend WithEvents ErrorLabel As System.Windows.Forms.Label
+    Friend WithEvents CurrentLabel As System.Windows.Forms.Label
+    Friend WithEvents InputLabel As System.Windows.Forms.Label
+    Friend WithEvents VelocityLabel As System.Windows.Forms.Label
 
 End Class
