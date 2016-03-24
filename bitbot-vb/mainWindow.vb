@@ -1,20 +1,25 @@
-﻿Public Class Foum1
-    Dim WithEvents phidgetMotor As Phidgets.MotorControl
-    Dim WithEvents phidgetMan As Phidgets.Manager
+﻿Public Class mainWindow
+    Public WithEvents phidgetMan As Phidgets.Manager
+
+    Dim devices As Object()
 
     ' Custom Error handler
-    Private Sub HandleError(ByVal text As String)
+    Public Sub HandleError(ByVal text As String)
         Debug.WriteLine("Self-handled error: " + text)
-        ErrorLabel.Text = text
     End Sub
 
     ' Once Form1 loads, createa new Phidget Manager and initiate the DataGridView
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        ErrorLabel.Text = ""
-
         phidgetMan = New Phidgets.Manager()
 
+        Dim phidgetMotor As Phidgets.MotorControl
+
         phidgetMotor = New Phidgets.MotorControl
+
+        Dim customHandle = New customMotor()
+        AddHandler phidgetMotor.VelocityChange, AddressOf customHandle.VelocityChange
+        AddHandler phidgetMotor.InputChange, AddressOf customHandle.InputChange
+        AddHandler phidgetMotor.CurrentChange, AddressOf customHandle.CurrentChange
 
         AttachedGrid.ColumnCount = 2
         AttachedGrid.Columns(0).Name = "Device Name"
@@ -34,27 +39,14 @@
         StartButton.BackColor = Color.DarkSlateBlue
     End Sub
 
-    ' Subs that get called once things change on the motor controller
-    Private Sub phidgetMotor_CurrentChange(ByVal sender As Object, ByVal e As Phidgets.Events.CurrentChangeEventArgs) Handles phidgetMotor.CurrentChange
-        CurrentLabel.Text = "Current: " + e.Current.ToString("F3")
-    End Sub
-    Private Sub phidgetMotor_InputChange(ByVal sender As Object, ByVal e As Phidgets.Events.InputChangeEventArgs) Handles phidgetMotor.InputChange
-        InputLabel.Text = e.Value
-    End Sub
-    Private Sub phidgetMotor_VelocityChange(ByVal sender As Object, ByVal e As Phidgets.Events.VelocityChangeEventArgs) Handles phidgetMotor.VelocityChange
-        VelocityLabel.Text = e.Velocity.ToString("F2")
-    End Sub
-
     ' Add a new row to the DataGridView with info from the new device
     Private Sub phidgetMan_Attach(ByVal sender As Object, ByVal e As Phidgets.Events.AttachEventArgs) Handles phidgetMan.Attach
-        Try
-            phidgetMotor.open(e.Device.SerialNumber)
-        Catch ex As Exception
-            HandleError(ex.Message)
-        End Try
+        Dim w As Form = New subWindow1(e.Device)
 
         Dim newrow() As String = {e.Device.Name, e.Device.SerialNumber.ToString()}
         AttachedGrid.Rows.Add(newrow)
+
+        w.Show()
     End Sub
 
     ' Loop through DataGridView, trying to find the detached serial number, then removing it

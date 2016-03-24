@@ -77,11 +77,18 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="devices\customMotor.vb" />
+    <Compile Include="mainWindow.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="mainWindow.Designer.vb">
+      <DependentUpon>mainWindow.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subWindow.Designer.vb">
+      <DependentUpon>subWindow.vb</DependentUpon>
+    </Compile>
+    <Compile Include="subWindow.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -101,8 +108,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="mainWindow.resx">
+      <DependentUpon>mainWindow.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="subWindow.resx">
+      <DependentUpon>subWindow.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
