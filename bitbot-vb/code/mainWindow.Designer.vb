@@ -22,11 +22,13 @@ Partial Class mainWindow
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(mainWindow))
         Me.CloseButton = New System.Windows.Forms.Button()
         Me.IPTextBox = New System.Windows.Forms.TextBox()
         Me.IPLabel = New System.Windows.Forms.Label()
         Me.AttachedGrid = New System.Windows.Forms.DataGridView()
         Me.StartButton = New System.Windows.Forms.Button()
+        Me.specialButton = New System.Windows.Forms.Button()
         CType(Me.AttachedGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -85,11 +87,25 @@ Partial Class mainWindow
         Me.StartButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.StartButton.Location = New System.Drawing.Point(12, 12)
         Me.StartButton.Name = "StartButton"
-        Me.StartButton.Size = New System.Drawing.Size(218, 40)
+        Me.StartButton.Size = New System.Drawing.Size(172, 40)
         Me.StartButton.TabIndex = 1
         Me.StartButton.TabStop = False
         Me.StartButton.Text = "Start"
         Me.StartButton.UseVisualStyleBackColor = False
+        '
+        'specialButton
+        '
+        Me.specialButton.BackColor = System.Drawing.Color.DarkSlateBlue
+        Me.specialButton.BackgroundImage = CType(resources.GetObject("specialButton.BackgroundImage"), System.Drawing.Image)
+        Me.specialButton.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.specialButton.ForeColor = System.Drawing.Color.GhostWhite
+        Me.specialButton.Location = New System.Drawing.Point(190, 12)
+        Me.specialButton.Name = "specialButton"
+        Me.specialButton.Size = New System.Drawing.Size(40, 40)
+        Me.specialButton.TabIndex = 6
+        Me.specialButton.TabStop = False
+        Me.specialButton.Text = "?"
+        Me.specialButton.UseVisualStyleBackColor = False
         '
         'mainWindow
         '
@@ -98,19 +114,21 @@ Partial Class mainWindow
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(288, 384)
         Me.ControlBox = False
+        Me.Controls.Add(Me.specialButton)
         Me.Controls.Add(Me.StartButton)
         Me.Controls.Add(Me.AttachedGrid)
         Me.Controls.Add(Me.IPLabel)
         Me.Controls.Add(Me.CloseButton)
         Me.Controls.Add(Me.IPTextBox)
+        Me.Cursor = System.Windows.Forms.Cursors.Arrow
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(304, 652)
         Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(304, 400)
         Me.Name = "mainWindow"
-        Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "bitbot-vb, by Jack Harrhy"
+        Me.Text = "bitbot-vb v1.3, by Jack Harrhy"
         CType(Me.AttachedGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -121,5 +139,6 @@ Partial Class mainWindow
     Friend WithEvents IPLabel As System.Windows.Forms.Label
     Friend WithEvents AttachedGrid As System.Windows.Forms.DataGridView
     Friend WithEvents StartButton As System.Windows.Forms.Button
+    Friend WithEvents specialButton As System.Windows.Forms.Button
 
 End Class
