@@ -1,17 +1,18 @@
 ﻿Public Class customInterface
-    Public WithEvents myDevice As New Phidgets.InterfaceKit
+    Public WithEvents device As New Phidgets.InterfaceKit
+    Private mySerialNumber As Int32
 
     Private digiInArray As CheckBox()
     Private digiOutArray As CheckBox()
     Private sensorInArray As TextBox()
 
-    Public Sub InputChange(ByVal sender As Object, ByVal e As Phidgets.Events.InputChangeEventArgs) Handles myDevice.InputChange
+    Public Sub InputChange(ByVal sender As Object, ByVal e As Phidgets.Events.InputChangeEventArgs) Handles device.InputChange
         digiInArray(e.Index).Checked = e.Value
     End Sub
-    Public Sub OutputChange(ByVal sender As Object, ByVal e As Phidgets.Events.OutputChangeEventArgs) Handles myDevice.OutputChange
+    Public Sub OutputChange(ByVal sender As Object, ByVal e As Phidgets.Events.OutputChangeEventArgs) Handles device.OutputChange
         digiOutArray(e.Index).Checked = e.Value
     End Sub
-    Public Sub SensorChange(ByVal sender As Object, ByVal e As Phidgets.Events.SensorChangeEventArgs) Handles myDevice.SensorChange
+    Public Sub SensorChange(ByVal sender As Object, ByVal e As Phidgets.Events.SensorChangeEventArgs) Handles device.SensorChange
         sensorInArray(e.Index).Text = e.Value.ToString()
     End Sub
 
@@ -41,7 +42,7 @@
         outputIndex = DirectCast(sender, CheckBox).Tag
         outputState = DirectCast(sender, CheckBox).CheckState
 
-        myDevice.outputs(outputIndex) = outputState
+        device.outputs(outputIndex) = outputState
     End Sub
     Private Sub makeDigiOutArray()
         ReDim digiInArray(15)
@@ -86,7 +87,7 @@
         Next i
     End Sub
 
-    Public Sub New(ByVal Device As Phidgets.InterfaceKit)
+    Public Sub New(ByVal newDevice As Phidgets.InterfaceKit)
         InitializeComponent()
 
         makeDigiInArray()
@@ -96,45 +97,48 @@
         sensitivitySlider.Value = 0
         sensitivitySlider.Enabled = False
 
-        Me.Name = Device.SerialNumber
-
-        myDevice.open(Device.SerialNumber, mainWindow.IPTextBox.Text, 5001)
-
-        deviceManager.AddNewDevice(myDevice)
+        mySerialNumber = newDevice.SerialNumber
+        Me.Text = mySerialNumber.ToString() + " | " + newDevice.Name
+        newDevice.open(mySerialNumber, mainWindow.HostnameTextBox.Text)
+        Me.Show()
     End Sub
 
-    Private Sub phidgetIFK_Attach(ByVal sender As Object, ByVal e As Phidgets.Events.AttachEventArgs) Handles myDevice.Attach
+    Private Sub Attach(ByVal sender As Object, ByVal e As Phidgets.Events.AttachEventArgs) Handles device.Attach
         Dim i As Integer
-        For i = 0 To myDevice.inputs.Count - 1
+        For i = 0 To device.inputs.Count - 1
             digiInArray(i).Visible = True
         Next i
 
-        For i = 0 To myDevice.outputs.Count - 1
+        For i = 0 To device.outputs.Count - 1
             digiOutArray(i).Visible = True
             digiOutArray(i).Enabled = True
         Next i
 
-        For i = 0 To myDevice.sensors.Count - 1
+        For i = 0 To device.sensors.Count - 1
             sensorInArray(i).Visible = True
         Next i
 
-        If myDevice.sensors.Count > 0 Then
+        If device.sensors.Count > 0 Then
             sensitivitySlider.Enabled = True
             sensitivitySlider.SetRange(0, 1000)
-            sensitivitySlider.Value = myDevice.sensors(0).Sensitivity
+            sensitivitySlider.Value = device.sensors(0).Sensitivity
 
-            myDevice.ratiometric = True
+            device.ratiometric = True
+            RatiometricButton.BackColor = Color.Green
         End If
     End Sub
 
     Public Sub Quit()
-        deviceManager.RemoveDevice(myDevice.SerialNumber)
+        If device.Attached Then
+            deviceManager.RemoveDevice(device.SerialNumber)
+        End If
 
-        RemoveHandler myDevice.InputChange, AddressOf InputChange
-        RemoveHandler myDevice.OutputChange, AddressOf OutputChange
-        RemoveHandler myDevice.SensorChange, AddressOf SensorChange
+        RemoveHandler device.InputChange, AddressOf InputChange
+        RemoveHandler device.OutputChange, AddressOf OutputChange
+        RemoveHandler device.SensorChange, AddressOf SensorChange
 
-        myDevice.close()
+        device.close()
+        Me.Close()
     End Sub
 
     Private Sub CloseButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CloseButton.Click
@@ -142,8 +146,14 @@
     End Sub
 
     Private Sub RatiometricButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RatiometricButton.Click
-        If myDevice.Attached Then
-            myDevice.ratiometric = Not myDevice.ratiometric
+        If device.Attached Then
+            device.ratiometric = Not device.ratiometric
+        End If
+
+        If device.ratiometric Then
+            RatiometricButton.BackColor = Color.Green
+        Else
+            RatiometricButton.BackColor = Color.DarkRed
         End If
     End Sub
 End Class

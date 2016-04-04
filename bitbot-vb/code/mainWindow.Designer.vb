@@ -22,6 +22,10 @@ Partial Class mainWindow
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(mainWindow))
         Me.CloseButton = New System.Windows.Forms.Button()
         Me.IPTextBox = New System.Windows.Forms.TextBox()
@@ -29,6 +33,9 @@ Partial Class mainWindow
         Me.AttachedGrid = New System.Windows.Forms.DataGridView()
         Me.StartButton = New System.Windows.Forms.Button()
         Me.specialButton = New System.Windows.Forms.Button()
+        Me.HostnameLabel = New System.Windows.Forms.Label()
+        Me.HostnameTextBox = New System.Windows.Forms.TextBox()
+        Me.Timer = New System.Windows.Forms.Timer(Me.components)
         CType(Me.AttachedGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -47,15 +54,15 @@ Partial Class mainWindow
         '
         'IPTextBox
         '
-        Me.IPTextBox.Location = New System.Drawing.Point(40, 58)
+        Me.IPTextBox.Location = New System.Drawing.Point(78, 58)
         Me.IPTextBox.Name = "IPTextBox"
-        Me.IPTextBox.Size = New System.Drawing.Size(236, 20)
+        Me.IPTextBox.Size = New System.Drawing.Size(198, 20)
         Me.IPTextBox.TabIndex = 2
         '
         'IPLabel
         '
         Me.IPLabel.AutoSize = True
-        Me.IPLabel.Location = New System.Drawing.Point(17, 61)
+        Me.IPLabel.Location = New System.Drawing.Point(55, 61)
         Me.IPLabel.Name = "IPLabel"
         Me.IPLabel.Size = New System.Drawing.Size(17, 13)
         Me.IPLabel.TabIndex = 3
@@ -71,13 +78,37 @@ Partial Class mainWindow
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AttachedGrid.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.AttachedGrid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.AttachedGrid.DefaultCellStyle = DataGridViewCellStyle5
         Me.AttachedGrid.Enabled = False
-        Me.AttachedGrid.Location = New System.Drawing.Point(12, 84)
+        Me.AttachedGrid.Location = New System.Drawing.Point(12, 110)
         Me.AttachedGrid.MultiSelect = False
         Me.AttachedGrid.Name = "AttachedGrid"
         Me.AttachedGrid.ReadOnly = True
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.AttachedGrid.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.AttachedGrid.RowHeadersVisible = False
-        Me.AttachedGrid.Size = New System.Drawing.Size(264, 288)
+        Me.AttachedGrid.Size = New System.Drawing.Size(264, 262)
         Me.AttachedGrid.TabIndex = 5
         '
         'StartButton
@@ -107,6 +138,25 @@ Partial Class mainWindow
         Me.specialButton.Text = "?"
         Me.specialButton.UseVisualStyleBackColor = False
         '
+        'HostnameLabel
+        '
+        Me.HostnameLabel.AutoSize = True
+        Me.HostnameLabel.Location = New System.Drawing.Point(17, 87)
+        Me.HostnameLabel.Name = "HostnameLabel"
+        Me.HostnameLabel.Size = New System.Drawing.Size(55, 13)
+        Me.HostnameLabel.TabIndex = 7
+        Me.HostnameLabel.Text = "Hostname"
+        '
+        'HostnameTextBox
+        '
+        Me.HostnameTextBox.Location = New System.Drawing.Point(78, 84)
+        Me.HostnameTextBox.Name = "HostnameTextBox"
+        Me.HostnameTextBox.Size = New System.Drawing.Size(198, 20)
+        Me.HostnameTextBox.TabIndex = 8
+        '
+        'Timer
+        '
+        '
         'mainWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -114,6 +164,8 @@ Partial Class mainWindow
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(288, 384)
         Me.ControlBox = False
+        Me.Controls.Add(Me.HostnameTextBox)
+        Me.Controls.Add(Me.HostnameLabel)
         Me.Controls.Add(Me.specialButton)
         Me.Controls.Add(Me.StartButton)
         Me.Controls.Add(Me.AttachedGrid)
@@ -128,7 +180,7 @@ Partial Class mainWindow
         Me.MinimumSize = New System.Drawing.Size(304, 400)
         Me.Name = "mainWindow"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "bitbot-vb v1.3, by Jack Harrhy"
+        Me.Text = "bitbot-vb v1.4, by Jack Harrhy"
         CType(Me.AttachedGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -140,5 +192,8 @@ Partial Class mainWindow
     Friend WithEvents AttachedGrid As System.Windows.Forms.DataGridView
     Friend WithEvents StartButton As System.Windows.Forms.Button
     Friend WithEvents specialButton As System.Windows.Forms.Button
+    Friend WithEvents HostnameLabel As System.Windows.Forms.Label
+    Friend WithEvents HostnameTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents Timer As System.Windows.Forms.Timer
 
 End Class

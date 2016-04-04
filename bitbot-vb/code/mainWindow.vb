@@ -15,6 +15,8 @@ Public Class mainWindow
 
     ' Once Form1 loads, createa new Phidget Manager and initiate the DataGridView
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Debug.WriteLine("New instance")
+
         phidgetMan = New Phidgets.Manager()
 
         AttachedGrid.ColumnCount = 2
@@ -34,46 +36,41 @@ Public Class mainWindow
     End Function
 
     Public Sub Start()
-        Debug.WriteLine("New instance")
+        If myCode.DoYouWantToHaveAConsole Then
+            ConsoleActive = True
+            AllocConsole()
 
-        ConsoleActive = True
-        AllocConsole()
-
-        Console.SetWindowSize(50, 30)
-        Console.Title = "My Console"
-        Console.ForegroundColor = ConsoleColor.Green
-        Console.WriteLine("CONSOLE OUTPUT")
-        Console.ForegroundColor = ConsoleColor.White
+            Console.SetWindowSize(50, 30)
+            Console.Title = "My Console"
+            Console.ForegroundColor = ConsoleColor.Green
+            Console.WriteLine("CONSOLE OUTPUT")
+            Console.ForegroundColor = ConsoleColor.White
+        End If
 
         myCode.OnStartup()
+        Timer.Enabled = True
     End Sub
 
     ' Change color of start button based off if connected or not
     Private Sub phidgetMan_ServerConnect() Handles phidgetMan.ServerConnect
+        StartButton.Text = "Connected!"
         StartButton.BackColor = Color.DarkGreen
         Start()
     End Sub
     Private Sub phidgetMan_ServerDisconnect() Handles phidgetMan.ServerDisconnect
-        StartButton.BackColor = Color.DarkSlateBlue
-        Quit()
+        StartButton.Text = "Disconnected"
+        StartButton.BackColor = Color.Black
+        deviceManager.RemoveAllDevices()
     End Sub
 
     ' Add a new row to the DataGridView with info from the new device
     Private Sub phidgetMan_Attach(ByVal sender As Object, ByVal e As Phidgets.Events.AttachEventArgs) Handles phidgetMan.Attach
-        subWindow.Create(e.Device)
-
-        Dim newrow() As String = {e.Device.Name, e.Device.SerialNumber.ToString()}
-        AttachedGrid.Rows.Add(newrow)
+        deviceManager.AddNewDevice(e.Device)
     End Sub
 
     ' Loop through DataGridView, trying to find the detached serial number, then removing it
     Private Sub phidgetMan_Detach(ByVal sender As Object, ByVal e As Phidgets.Events.DetachEventArgs) Handles phidgetMan.Detach
-        Dim row As DataGridViewRow
-        For Each row In AttachedGrid.Rows
-            If row.Cells(1).Value.Equals(e.Device.SerialNumber.ToString()) Then
-                AttachedGrid.Rows.Remove(row)
-            End If
-        Next
+        deviceManager.RemoveDevice(e.Device.SerialNumber)
     End Sub
 
     ' MessageBox popup on an error with the Phidget Manager
@@ -84,10 +81,18 @@ Public Class mainWindow
         HandleError(e.Description)
     End Sub
 
-    ' Open the Phidget manager on the chosen IP addressart
+    ' Open the Phidget manager on the chosen Hostname
     Private Sub StartButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StartButton.Click
         StartButton.BackColor = Color.DarkSlateBlue
         StartButton.Text = "Connecting..."
+
+        If String.Equals(IPTextBox.Text, "") Then
+            IPTextBox.Text = myCode.YourPhidgetSBCsIP
+        End If
+        If String.Equals(HostnameTextBox.Text, "") Then
+            HostnameTextBox.Text = myCode.YourPhidgetSBCsHostname
+        End If
+
         phidgetMan.open(IPTextBox.Text, 5001)
     End Sub
 
@@ -98,6 +103,8 @@ Public Class mainWindow
     ' Safely close the Phidget Manager, then the window itself
     Public Sub Quit()
         myCode.OnClosing()
+        deviceManager.RemoveAllDevices()
+
         ConsoleActive = False
         FreeConsole()
 
@@ -112,5 +119,13 @@ Public Class mainWindow
 
     Private Sub specialButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles specialButton.Click
         specialWindow.Show()
+    End Sub
+
+    Private Sub Timer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer.Tick
+        If Not String.Equals(Timer.Interval, myCode.LoopIntervalInMilliseconds) Then
+            Timer.Interval = myCode.LoopIntervalInMilliseconds
+        End If
+
+        myCode.LoopingSub()
     End Sub
 End Class

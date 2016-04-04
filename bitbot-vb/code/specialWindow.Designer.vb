@@ -59,7 +59,8 @@ Partial Class specialWindow
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.Size = New System.Drawing.Size(260, 162)
         Me.RichTextBox1.TabIndex = 3
-        Me.RichTextBox1.Text = "v1.3" & Global.Microsoft.VisualBasic.ChrW(10) & "Currently implements:" & Global.Microsoft.VisualBasic.ChrW(10) & "PhidgetInterfaceKit" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "jack@jackharrhy.com"
+        Me.RichTextBox1.Text = "v1.4" & Global.Microsoft.VisualBasic.ChrW(10) & "Currently implements:" & Global.Microsoft.VisualBasic.ChrW(10) & "PhidgetInterfaceKit" & Global.Microsoft.VisualBasic.ChrW(10) & "PhidgetMotorControl (designed for " & _
+            "2-motor only)" & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "jack@jackharrhy.com"
         '
         'specialWindow
         '

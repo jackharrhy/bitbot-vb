@@ -8,8 +8,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{84E8160E-0807-40AC-9BF7-75D25A4E73C8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>WindowsApplication1.My.MyApplication</StartupObject>
-    <RootNamespace>WindowsApplication1</RootNamespace>
+    <StartupObject>bitbot.My.MyApplication</StartupObject>
+    <RootNamespace>bitbot</RootNamespace>
     <AssemblyName>bitbot-vb</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
@@ -40,6 +40,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>bitbot-vb.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -50,6 +51,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>bitbot-vb.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -62,6 +64,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>bitbot-128.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -95,7 +100,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="code\subWindow.vb" />
+    <Compile Include="code\devices\customMotor.Designer.vb">
+      <DependentUpon>customMotor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="code\devices\customMotor.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="code\deviceManager.vb" />
     <Compile Include="code\devices\customInterface.Designer.vb">
       <DependentUpon>customInterface.vb</DependentUpon>
@@ -134,6 +144,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="code\devices\customMotor.resx">
+      <DependentUpon>customMotor.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="code\devices\customInterface.resx">
       <DependentUpon>customInterface.vb</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +164,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -187,6 +201,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bitbot-128.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
