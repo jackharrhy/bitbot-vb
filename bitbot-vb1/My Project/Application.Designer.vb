@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.bitbot.mainWindow
+            Me.MainForm = Global.bitbotvb.mainWindow
         End Sub
     End Class
 End Namespace

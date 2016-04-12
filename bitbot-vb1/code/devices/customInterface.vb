@@ -1,19 +1,76 @@
 ﻿Public Class customInterface
-    Public WithEvents device As New Phidgets.InterfaceKit
-    Private mySerialNumber As Int32
+    Public myDevice As New Phidgets.InterfaceKit
 
     Private digiInArray As CheckBox()
     Private digiOutArray As CheckBox()
     Private sensorInArray As TextBox()
 
-    Public Sub InputChange(ByVal sender As Object, ByVal e As Phidgets.Events.InputChangeEventArgs) Handles device.InputChange
+    Public Sub InputChange(ByVal sender As Object, ByVal e As Phidgets.Events.InputChangeEventArgs)
         digiInArray(e.Index).Checked = e.Value
     End Sub
-    Public Sub OutputChange(ByVal sender As Object, ByVal e As Phidgets.Events.OutputChangeEventArgs) Handles device.OutputChange
+    Public Sub OutputChange(ByVal sender As Object, ByVal e As Phidgets.Events.OutputChangeEventArgs)
         digiOutArray(e.Index).Checked = e.Value
     End Sub
-    Public Sub SensorChange(ByVal sender As Object, ByVal e As Phidgets.Events.SensorChangeEventArgs) Handles device.SensorChange
+    Public Sub SensorChange(ByVal sender As Object, ByVal e As Phidgets.Events.SensorChangeEventArgs)
         sensorInArray(e.Index).Text = e.Value.ToString()
+    End Sub
+
+    Public Sub New(ByRef newDevice As Phidgets.InterfaceKit)
+        InitializeComponent()
+
+        makeDigiInArray()
+        makeDigiOutArray()
+        makeSensorInArray()
+
+        sensitivitySlider.Value = 0
+        sensitivitySlider.Enabled = False
+
+        myDevice = newDevice
+
+        AddHandler newDevice.Attach, AddressOf Attach
+        AddHandler newDevice.Detach, AddressOf Detach
+        AddHandler newDevice.InputChange, AddressOf InputChange
+        AddHandler newDevice.OutputChange, AddressOf OutputChange
+        AddHandler newDevice.SensorChange, AddressOf SensorChange
+
+        Me.Text = newDevice.ToString() + " | " + newDevice.Name
+        Me.Show()
+    End Sub
+
+    Private Sub customInterface_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
+        myDevice.close()
+    End Sub
+
+    Private Sub Attach(ByVal sender As Object, ByVal e As Phidgets.Events.AttachEventArgs)
+        Dim i As Integer
+        For i = 0 To myDevice.inputs.Count - 1
+            digiInArray(i).Visible = True
+        Next i
+
+        For i = 0 To myDevice.outputs.Count - 1
+            digiOutArray(i).Visible = True
+            digiOutArray(i).Enabled = True
+        Next i
+
+        For i = 0 To myDevice.sensors.Count - 1
+            sensorInArray(i).Visible = True
+        Next i
+
+        If myDevice.sensors.Count > 0 Then
+            sensitivitySlider.Enabled = True
+            sensitivitySlider.SetRange(0, 1000)
+            sensitivitySlider.Value = myDevice.sensors(0).Sensitivity
+
+            myDevice.ratiometric = True
+            RatiometricButton.BackColor = Color.Green
+        End If
+    End Sub
+    Private Sub Detach(ByVal sender As Object, ByVal e As Phidgets.Events.DetachEventArgs)
+        RemoveHandler myDevice.Attach, AddressOf Attach
+        RemoveHandler myDevice.Detach, AddressOf Detach
+        RemoveHandler myDevice.InputChange, AddressOf InputChange
+        RemoveHandler myDevice.OutputChange, AddressOf OutputChange
+        RemoveHandler myDevice.SensorChange, AddressOf SensorChange
     End Sub
 
     Private Sub makeDigiInArray()
@@ -42,7 +99,7 @@
         outputIndex = DirectCast(sender, CheckBox).Tag
         outputState = DirectCast(sender, CheckBox).CheckState
 
-        device.outputs(outputIndex) = outputState
+        myDevice.outputs(outputIndex) = outputState
     End Sub
     Private Sub makeDigiOutArray()
         ReDim digiInArray(15)
@@ -86,71 +143,12 @@
             sensorInArray(i).Visible = False
         Next i
     End Sub
-
-    Public Sub New(ByVal newDevice As Phidgets.InterfaceKit)
-        InitializeComponent()
-
-        makeDigiInArray()
-        makeDigiOutArray()
-        makeSensorInArray()
-
-        sensitivitySlider.Value = 0
-        sensitivitySlider.Enabled = False
-
-        mySerialNumber = newDevice.SerialNumber
-        Me.Text = mySerialNumber.ToString() + " | " + newDevice.Name
-        newDevice.open(mySerialNumber, mainWindow.HostnameTextBox.Text)
-        Me.Show()
-    End Sub
-
-    Private Sub Attach(ByVal sender As Object, ByVal e As Phidgets.Events.AttachEventArgs) Handles device.Attach
-        Dim i As Integer
-        For i = 0 To device.inputs.Count - 1
-            digiInArray(i).Visible = True
-        Next i
-
-        For i = 0 To device.outputs.Count - 1
-            digiOutArray(i).Visible = True
-            digiOutArray(i).Enabled = True
-        Next i
-
-        For i = 0 To device.sensors.Count - 1
-            sensorInArray(i).Visible = True
-        Next i
-
-        If device.sensors.Count > 0 Then
-            sensitivitySlider.Enabled = True
-            sensitivitySlider.SetRange(0, 1000)
-            sensitivitySlider.Value = device.sensors(0).Sensitivity
-
-            device.ratiometric = True
-            RatiometricButton.BackColor = Color.Green
-        End If
-    End Sub
-
-    Public Sub Quit()
-        If device.Attached Then
-            deviceManager.RemoveDevice(device.SerialNumber)
-        End If
-
-        RemoveHandler device.InputChange, AddressOf InputChange
-        RemoveHandler device.OutputChange, AddressOf OutputChange
-        RemoveHandler device.SensorChange, AddressOf SensorChange
-
-        device.close()
-        Me.Close()
-    End Sub
-
-    Private Sub CloseButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CloseButton.Click
-        Quit()
-    End Sub
-
     Private Sub RatiometricButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RatiometricButton.Click
-        If device.Attached Then
-            device.ratiometric = Not device.ratiometric
+        If myDevice.Attached Then
+            myDevice.ratiometric = Not myDevice.ratiometric
         End If
 
-        If device.ratiometric Then
+        If myDevice.ratiometric Then
             RatiometricButton.BackColor = Color.Green
         Else
             RatiometricButton.BackColor = Color.DarkRed

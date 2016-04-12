@@ -6,10 +6,10 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{84E8160E-0807-40AC-9BF7-75D25A4E73C8}</ProjectGuid>
+    <ProjectGuid>{E3EA55AC-17F7-4B99-9A49-E4653EE06A1C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>bitbot.My.MyApplication</StartupObject>
-    <RootNamespace>bitbot</RootNamespace>
+    <StartupObject>bitbotvb.My.MyApplication</StartupObject>
+    <RootNamespace>bitbotvb</RootNamespace>
     <AssemblyName>bitbot-vb</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
@@ -40,7 +40,6 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>bitbot-vb.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -51,7 +50,6 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>bitbot-vb.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -66,21 +64,18 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>bitbot-128.ico</ApplicationIcon>
+    <ApplicationIcon>code\bitbot-128.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL" />
     <Reference Include="Phidget21.NET, Version=2.1.8.243, Culture=neutral, PublicKeyToken=c2b1f2a3594bce52, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Phidget21.NET.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.SqlServerCe, Version=3.5.1.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Messaging" />
-    <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -100,26 +95,18 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="code\devices\customMotor.Designer.vb">
-      <DependentUpon>customMotor.vb</DependentUpon>
-    </Compile>
-    <Compile Include="code\devices\customMotor.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="code\deviceManager.vb" />
     <Compile Include="code\devices\customInterface.Designer.vb">
       <DependentUpon>customInterface.vb</DependentUpon>
     </Compile>
     <Compile Include="code\devices\customInterface.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="code\specialWindow.Designer.vb">
-      <DependentUpon>specialWindow.vb</DependentUpon>
+    <Compile Include="code\devices\customMotor.Designer.vb">
+      <DependentUpon>customMotor.vb</DependentUpon>
     </Compile>
-    <Compile Include="code\specialWindow.vb">
+    <Compile Include="code\devices\customMotor.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="myCode.vb" />
     <Compile Include="code\mainWindow.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +114,8 @@
       <DependentUpon>mainWindow.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="code\joyStick.vb" />
+    <Compile Include="myCode.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -144,17 +133,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="code\devices\customMotor.resx">
-      <DependentUpon>customMotor.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="code\devices\customInterface.resx">
       <DependentUpon>customInterface.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="code\devices\customMotor.resx">
+      <DependentUpon>customMotor.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="code\mainWindow.resx">
       <DependentUpon>mainWindow.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="code\specialWindow.resx">
-      <DependentUpon>specialWindow.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -164,7 +150,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -174,6 +159,9 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="code\bitbot-128.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
@@ -191,19 +179,11 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.3.5">
-      <Visible>False</Visible>
-      <ProductName>SQL Server Compact 3.5 SP2</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
       <Visible>False</Visible>
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="bitbot-128.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
