@@ -33,15 +33,23 @@
         AddHandler newDevice.OutputChange, AddressOf OutputChange
         AddHandler newDevice.SensorChange, AddressOf SensorChange
 
-        Me.Text = newDevice.ToString() + " | " + newDevice.Name
         Me.Show()
     End Sub
 
     Private Sub customInterface_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         myDevice.close()
     End Sub
+    Private Sub Detach(ByVal sender As Object, ByVal e As Phidgets.Events.DetachEventArgs)
+        RemoveHandler myDevice.Attach, AddressOf Attach
+        RemoveHandler myDevice.Detach, AddressOf Detach
+        RemoveHandler myDevice.InputChange, AddressOf InputChange
+        RemoveHandler myDevice.OutputChange, AddressOf OutputChange
+        RemoveHandler myDevice.SensorChange, AddressOf SensorChange
+    End Sub
 
     Private Sub Attach(ByVal sender As Object, ByVal e As Phidgets.Events.AttachEventArgs)
+        Me.Text = myDevice.ToString() + " | " + myDevice.Name
+
         Dim i As Integer
         For i = 0 To myDevice.inputs.Count - 1
             digiInArray(i).Visible = True
@@ -64,13 +72,6 @@
             myDevice.ratiometric = True
             RatiometricButton.BackColor = Color.Green
         End If
-    End Sub
-    Private Sub Detach(ByVal sender As Object, ByVal e As Phidgets.Events.DetachEventArgs)
-        RemoveHandler myDevice.Attach, AddressOf Attach
-        RemoveHandler myDevice.Detach, AddressOf Detach
-        RemoveHandler myDevice.InputChange, AddressOf InputChange
-        RemoveHandler myDevice.OutputChange, AddressOf OutputChange
-        RemoveHandler myDevice.SensorChange, AddressOf SensorChange
     End Sub
 
     Private Sub makeDigiInArray()

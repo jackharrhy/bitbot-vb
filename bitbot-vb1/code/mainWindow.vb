@@ -47,11 +47,16 @@
         StartButton.BackColor = Color.Black
     End Sub
 
+    Private HasStarted As Boolean = False
     Private Sub StartButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StartButton.Click
-        StartButton.BackColor = Color.DarkSlateBlue
-        StartButton.Text = "Connecting..."
+        If Not HasStarted Then
+            StartButton.BackColor = Color.DarkSlateBlue
+            StartButton.Text = "Connecting..."
 
-        phidgetMan.open(myCode.SBCIP, 5001)
+            phidgetMan.open(myCode.SBCIP, 5001)
+
+            HasStarted = True
+        End If
     End Sub
 
     Private Sub mainWindow_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing

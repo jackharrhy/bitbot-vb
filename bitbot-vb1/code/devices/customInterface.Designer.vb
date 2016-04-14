@@ -80,18 +80,20 @@ Partial Class customInterface
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Location = New System.Drawing.Point(18, 14)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(35, 13)
+        Me.Label1.Size = New System.Drawing.Size(51, 20)
         Me.Label1.TabIndex = 22
         Me.Label1.Text = "Dig In"
         '
         'digitalOut16
         '
         Me.digitalOut16.AutoSize = True
-        Me.digitalOut16.Location = New System.Drawing.Point(13, 299)
+        Me.digitalOut16.Location = New System.Drawing.Point(20, 460)
+        Me.digitalOut16.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalOut16.Name = "digitalOut16"
-        Me.digitalOut16.Size = New System.Drawing.Size(15, 14)
+        Me.digitalOut16.Size = New System.Drawing.Size(22, 21)
         Me.digitalOut16.TabIndex = 15
         Me.digitalOut16.UseVisualStyleBackColor = True
         Me.digitalOut16.Visible = False
@@ -100,9 +102,10 @@ Partial Class customInterface
         '
         Me.digitalIn16.AutoSize = True
         Me.digitalIn16.Enabled = False
-        Me.digitalIn16.Location = New System.Drawing.Point(13, 299)
+        Me.digitalIn16.Location = New System.Drawing.Point(20, 460)
+        Me.digitalIn16.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalIn16.Name = "digitalIn16"
-        Me.digitalIn16.Size = New System.Drawing.Size(15, 14)
+        Me.digitalIn16.Size = New System.Drawing.Size(22, 21)
         Me.digitalIn16.TabIndex = 15
         Me.digitalIn16.UseVisualStyleBackColor = True
         Me.digitalIn16.Visible = False
@@ -111,9 +114,10 @@ Partial Class customInterface
         '
         Me.digitalIn15.AutoSize = True
         Me.digitalIn15.Enabled = False
-        Me.digitalIn15.Location = New System.Drawing.Point(13, 279)
+        Me.digitalIn15.Location = New System.Drawing.Point(20, 429)
+        Me.digitalIn15.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalIn15.Name = "digitalIn15"
-        Me.digitalIn15.Size = New System.Drawing.Size(15, 14)
+        Me.digitalIn15.Size = New System.Drawing.Size(22, 21)
         Me.digitalIn15.TabIndex = 14
         Me.digitalIn15.UseVisualStyleBackColor = True
         Me.digitalIn15.Visible = False
@@ -121,9 +125,10 @@ Partial Class customInterface
         'digitalOut15
         '
         Me.digitalOut15.AutoSize = True
-        Me.digitalOut15.Location = New System.Drawing.Point(13, 279)
+        Me.digitalOut15.Location = New System.Drawing.Point(20, 429)
+        Me.digitalOut15.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalOut15.Name = "digitalOut15"
-        Me.digitalOut15.Size = New System.Drawing.Size(15, 14)
+        Me.digitalOut15.Size = New System.Drawing.Size(22, 21)
         Me.digitalOut15.TabIndex = 14
         Me.digitalOut15.UseVisualStyleBackColor = True
         Me.digitalOut15.Visible = False
@@ -131,9 +136,10 @@ Partial Class customInterface
         'digitalOut14
         '
         Me.digitalOut14.AutoSize = True
-        Me.digitalOut14.Location = New System.Drawing.Point(13, 261)
+        Me.digitalOut14.Location = New System.Drawing.Point(20, 402)
+        Me.digitalOut14.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalOut14.Name = "digitalOut14"
-        Me.digitalOut14.Size = New System.Drawing.Size(15, 14)
+        Me.digitalOut14.Size = New System.Drawing.Size(22, 21)
         Me.digitalOut14.TabIndex = 13
         Me.digitalOut14.UseVisualStyleBackColor = True
         Me.digitalOut14.Visible = False
@@ -141,9 +147,10 @@ Partial Class customInterface
         'digitalOut13
         '
         Me.digitalOut13.AutoSize = True
-        Me.digitalOut13.Location = New System.Drawing.Point(13, 241)
+        Me.digitalOut13.Location = New System.Drawing.Point(20, 371)
+        Me.digitalOut13.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalOut13.Name = "digitalOut13"
-        Me.digitalOut13.Size = New System.Drawing.Size(15, 14)
+        Me.digitalOut13.Size = New System.Drawing.Size(22, 21)
         Me.digitalOut13.TabIndex = 12
         Me.digitalOut13.UseVisualStyleBackColor = True
         Me.digitalOut13.Visible = False
@@ -166,9 +173,10 @@ Partial Class customInterface
         Me.digitalInPanel.Controls.Add(Me.digitalIn3)
         Me.digitalInPanel.Controls.Add(Me.digitalIn2)
         Me.digitalInPanel.Controls.Add(Me.digitalIn1)
-        Me.digitalInPanel.Location = New System.Drawing.Point(12, 25)
+        Me.digitalInPanel.Location = New System.Drawing.Point(18, 38)
+        Me.digitalInPanel.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalInPanel.Name = "digitalInPanel"
-        Me.digitalInPanel.Size = New System.Drawing.Size(40, 317)
+        Me.digitalInPanel.Size = New System.Drawing.Size(60, 488)
         Me.digitalInPanel.TabIndex = 18
         Me.digitalInPanel.Tag = ""
         '
@@ -176,9 +184,10 @@ Partial Class customInterface
         '
         Me.digitalIn14.AutoSize = True
         Me.digitalIn14.Enabled = False
-        Me.digitalIn14.Location = New System.Drawing.Point(13, 261)
+        Me.digitalIn14.Location = New System.Drawing.Point(20, 402)
+        Me.digitalIn14.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalIn14.Name = "digitalIn14"
-        Me.digitalIn14.Size = New System.Drawing.Size(15, 14)
+        Me.digitalIn14.Size = New System.Drawing.Size(22, 21)
         Me.digitalIn14.TabIndex = 13
         Me.digitalIn14.UseVisualStyleBackColor = True
         Me.digitalIn14.Visible = False
@@ -187,9 +196,10 @@ Partial Class customInterface
         '
         Me.digitalIn13.AutoSize = True
         Me.digitalIn13.Enabled = False
-        Me.digitalIn13.Location = New System.Drawing.Point(13, 241)
+        Me.digitalIn13.Location = New System.Drawing.Point(20, 371)
+        Me.digitalIn13.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalIn13.Name = "digitalIn13"
-        Me.digitalIn13.Size = New System.Drawing.Size(15, 14)
+        Me.digitalIn13.Size = New System.Drawing.Size(22, 21)
         Me.digitalIn13.TabIndex = 12
         Me.digitalIn13.UseVisualStyleBackColor = True
         Me.digitalIn13.Visible = False
@@ -198,9 +208,10 @@ Partial Class customInterface
         '
         Me.digitalIn12.AutoSize = True
         Me.digitalIn12.Enabled = False
-        Me.digitalIn12.Location = New System.Drawing.Point(13, 221)
+        Me.digitalIn12.Location = New System.Drawing.Point(20, 340)
+        Me.digitalIn12.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalIn12.Name = "digitalIn12"
-        Me.digitalIn12.Size = New System.Drawing.Size(15, 14)
+        Me.digitalIn12.Size = New System.Drawing.Size(22, 21)
         Me.digitalIn12.TabIndex = 11
         Me.digitalIn12.UseVisualStyleBackColor = True
         Me.digitalIn12.Visible = False
@@ -209,9 +220,10 @@ Partial Class customInterface
         '
         Me.digitalIn11.AutoSize = True
         Me.digitalIn11.Enabled = False
-        Me.digitalIn11.Location = New System.Drawing.Point(13, 201)
+        Me.digitalIn11.Location = New System.Drawing.Point(20, 309)
+        Me.digitalIn11.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalIn11.Name = "digitalIn11"
-        Me.digitalIn11.Size = New System.Drawing.Size(15, 14)
+        Me.digitalIn11.Size = New System.Drawing.Size(22, 21)
         Me.digitalIn11.TabIndex = 10
         Me.digitalIn11.UseVisualStyleBackColor = True
         Me.digitalIn11.Visible = False
@@ -220,9 +232,10 @@ Partial Class customInterface
         '
         Me.digitalIn10.AutoSize = True
         Me.digitalIn10.Enabled = False
-        Me.digitalIn10.Location = New System.Drawing.Point(13, 181)
+        Me.digitalIn10.Location = New System.Drawing.Point(20, 278)
+        Me.digitalIn10.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalIn10.Name = "digitalIn10"
-        Me.digitalIn10.Size = New System.Drawing.Size(15, 14)
+        Me.digitalIn10.Size = New System.Drawing.Size(22, 21)
         Me.digitalIn10.TabIndex = 9
         Me.digitalIn10.UseVisualStyleBackColor = True
         Me.digitalIn10.Visible = False
@@ -231,9 +244,10 @@ Partial Class customInterface
         '
         Me.digitalIn9.AutoSize = True
         Me.digitalIn9.Enabled = False
-        Me.digitalIn9.Location = New System.Drawing.Point(13, 161)
+        Me.digitalIn9.Location = New System.Drawing.Point(20, 248)
+        Me.digitalIn9.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalIn9.Name = "digitalIn9"
-        Me.digitalIn9.Size = New System.Drawing.Size(15, 14)
+        Me.digitalIn9.Size = New System.Drawing.Size(22, 21)
         Me.digitalIn9.TabIndex = 8
         Me.digitalIn9.UseVisualStyleBackColor = True
         Me.digitalIn9.Visible = False
@@ -242,9 +256,10 @@ Partial Class customInterface
         '
         Me.digitalIn8.AutoSize = True
         Me.digitalIn8.Enabled = False
-        Me.digitalIn8.Location = New System.Drawing.Point(13, 141)
+        Me.digitalIn8.Location = New System.Drawing.Point(20, 217)
+        Me.digitalIn8.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalIn8.Name = "digitalIn8"
-        Me.digitalIn8.Size = New System.Drawing.Size(15, 14)
+        Me.digitalIn8.Size = New System.Drawing.Size(22, 21)
         Me.digitalIn8.TabIndex = 7
         Me.digitalIn8.UseVisualStyleBackColor = True
         Me.digitalIn8.Visible = False
@@ -253,9 +268,10 @@ Partial Class customInterface
         '
         Me.digitalIn7.AutoSize = True
         Me.digitalIn7.Enabled = False
-        Me.digitalIn7.Location = New System.Drawing.Point(13, 121)
+        Me.digitalIn7.Location = New System.Drawing.Point(20, 186)
+        Me.digitalIn7.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalIn7.Name = "digitalIn7"
-        Me.digitalIn7.Size = New System.Drawing.Size(15, 14)
+        Me.digitalIn7.Size = New System.Drawing.Size(22, 21)
         Me.digitalIn7.TabIndex = 6
         Me.digitalIn7.UseVisualStyleBackColor = True
         Me.digitalIn7.Visible = False
@@ -264,9 +280,10 @@ Partial Class customInterface
         '
         Me.digitalIn6.AutoSize = True
         Me.digitalIn6.Enabled = False
-        Me.digitalIn6.Location = New System.Drawing.Point(13, 101)
+        Me.digitalIn6.Location = New System.Drawing.Point(20, 155)
+        Me.digitalIn6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalIn6.Name = "digitalIn6"
-        Me.digitalIn6.Size = New System.Drawing.Size(15, 14)
+        Me.digitalIn6.Size = New System.Drawing.Size(22, 21)
         Me.digitalIn6.TabIndex = 5
         Me.digitalIn6.UseVisualStyleBackColor = True
         Me.digitalIn6.Visible = False
@@ -275,9 +292,10 @@ Partial Class customInterface
         '
         Me.digitalIn5.AutoSize = True
         Me.digitalIn5.Enabled = False
-        Me.digitalIn5.Location = New System.Drawing.Point(13, 83)
+        Me.digitalIn5.Location = New System.Drawing.Point(20, 128)
+        Me.digitalIn5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalIn5.Name = "digitalIn5"
-        Me.digitalIn5.Size = New System.Drawing.Size(15, 14)
+        Me.digitalIn5.Size = New System.Drawing.Size(22, 21)
         Me.digitalIn5.TabIndex = 4
         Me.digitalIn5.UseVisualStyleBackColor = True
         Me.digitalIn5.Visible = False
@@ -286,9 +304,10 @@ Partial Class customInterface
         '
         Me.digitalIn4.AutoSize = True
         Me.digitalIn4.Enabled = False
-        Me.digitalIn4.Location = New System.Drawing.Point(13, 63)
+        Me.digitalIn4.Location = New System.Drawing.Point(20, 97)
+        Me.digitalIn4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalIn4.Name = "digitalIn4"
-        Me.digitalIn4.Size = New System.Drawing.Size(15, 14)
+        Me.digitalIn4.Size = New System.Drawing.Size(22, 21)
         Me.digitalIn4.TabIndex = 3
         Me.digitalIn4.UseVisualStyleBackColor = True
         Me.digitalIn4.Visible = False
@@ -297,9 +316,10 @@ Partial Class customInterface
         '
         Me.digitalIn3.AutoSize = True
         Me.digitalIn3.Enabled = False
-        Me.digitalIn3.Location = New System.Drawing.Point(13, 43)
+        Me.digitalIn3.Location = New System.Drawing.Point(20, 66)
+        Me.digitalIn3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalIn3.Name = "digitalIn3"
-        Me.digitalIn3.Size = New System.Drawing.Size(15, 14)
+        Me.digitalIn3.Size = New System.Drawing.Size(22, 21)
         Me.digitalIn3.TabIndex = 2
         Me.digitalIn3.UseVisualStyleBackColor = True
         Me.digitalIn3.Visible = False
@@ -308,9 +328,10 @@ Partial Class customInterface
         '
         Me.digitalIn2.AutoSize = True
         Me.digitalIn2.Enabled = False
-        Me.digitalIn2.Location = New System.Drawing.Point(13, 23)
+        Me.digitalIn2.Location = New System.Drawing.Point(20, 35)
+        Me.digitalIn2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalIn2.Name = "digitalIn2"
-        Me.digitalIn2.Size = New System.Drawing.Size(15, 14)
+        Me.digitalIn2.Size = New System.Drawing.Size(22, 21)
         Me.digitalIn2.TabIndex = 1
         Me.digitalIn2.UseVisualStyleBackColor = True
         Me.digitalIn2.Visible = False
@@ -319,9 +340,10 @@ Partial Class customInterface
         '
         Me.digitalIn1.AutoSize = True
         Me.digitalIn1.Enabled = False
-        Me.digitalIn1.Location = New System.Drawing.Point(13, 3)
+        Me.digitalIn1.Location = New System.Drawing.Point(20, 5)
+        Me.digitalIn1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalIn1.Name = "digitalIn1"
-        Me.digitalIn1.Size = New System.Drawing.Size(15, 14)
+        Me.digitalIn1.Size = New System.Drawing.Size(22, 21)
         Me.digitalIn1.TabIndex = 0
         Me.digitalIn1.UseVisualStyleBackColor = True
         Me.digitalIn1.Visible = False
@@ -329,9 +351,10 @@ Partial Class customInterface
         'digitalOut12
         '
         Me.digitalOut12.AutoSize = True
-        Me.digitalOut12.Location = New System.Drawing.Point(13, 221)
+        Me.digitalOut12.Location = New System.Drawing.Point(20, 340)
+        Me.digitalOut12.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalOut12.Name = "digitalOut12"
-        Me.digitalOut12.Size = New System.Drawing.Size(15, 14)
+        Me.digitalOut12.Size = New System.Drawing.Size(22, 21)
         Me.digitalOut12.TabIndex = 11
         Me.digitalOut12.UseVisualStyleBackColor = True
         Me.digitalOut12.Visible = False
@@ -339,9 +362,10 @@ Partial Class customInterface
         'digitalOut11
         '
         Me.digitalOut11.AutoSize = True
-        Me.digitalOut11.Location = New System.Drawing.Point(13, 201)
+        Me.digitalOut11.Location = New System.Drawing.Point(20, 309)
+        Me.digitalOut11.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalOut11.Name = "digitalOut11"
-        Me.digitalOut11.Size = New System.Drawing.Size(15, 14)
+        Me.digitalOut11.Size = New System.Drawing.Size(22, 21)
         Me.digitalOut11.TabIndex = 10
         Me.digitalOut11.UseVisualStyleBackColor = True
         Me.digitalOut11.Visible = False
@@ -349,9 +373,10 @@ Partial Class customInterface
         'digitalOut10
         '
         Me.digitalOut10.AutoSize = True
-        Me.digitalOut10.Location = New System.Drawing.Point(13, 181)
+        Me.digitalOut10.Location = New System.Drawing.Point(20, 278)
+        Me.digitalOut10.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalOut10.Name = "digitalOut10"
-        Me.digitalOut10.Size = New System.Drawing.Size(15, 14)
+        Me.digitalOut10.Size = New System.Drawing.Size(22, 21)
         Me.digitalOut10.TabIndex = 9
         Me.digitalOut10.UseVisualStyleBackColor = True
         Me.digitalOut10.Visible = False
@@ -359,9 +384,10 @@ Partial Class customInterface
         'digitalOut9
         '
         Me.digitalOut9.AutoSize = True
-        Me.digitalOut9.Location = New System.Drawing.Point(13, 161)
+        Me.digitalOut9.Location = New System.Drawing.Point(20, 248)
+        Me.digitalOut9.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalOut9.Name = "digitalOut9"
-        Me.digitalOut9.Size = New System.Drawing.Size(15, 14)
+        Me.digitalOut9.Size = New System.Drawing.Size(22, 21)
         Me.digitalOut9.TabIndex = 8
         Me.digitalOut9.UseVisualStyleBackColor = True
         Me.digitalOut9.Visible = False
@@ -369,9 +395,10 @@ Partial Class customInterface
         'digitalOut8
         '
         Me.digitalOut8.AutoSize = True
-        Me.digitalOut8.Location = New System.Drawing.Point(13, 141)
+        Me.digitalOut8.Location = New System.Drawing.Point(20, 217)
+        Me.digitalOut8.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalOut8.Name = "digitalOut8"
-        Me.digitalOut8.Size = New System.Drawing.Size(15, 14)
+        Me.digitalOut8.Size = New System.Drawing.Size(22, 21)
         Me.digitalOut8.TabIndex = 7
         Me.digitalOut8.UseVisualStyleBackColor = True
         Me.digitalOut8.Visible = False
@@ -379,9 +406,10 @@ Partial Class customInterface
         'digitalOut7
         '
         Me.digitalOut7.AutoSize = True
-        Me.digitalOut7.Location = New System.Drawing.Point(13, 121)
+        Me.digitalOut7.Location = New System.Drawing.Point(20, 186)
+        Me.digitalOut7.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalOut7.Name = "digitalOut7"
-        Me.digitalOut7.Size = New System.Drawing.Size(15, 14)
+        Me.digitalOut7.Size = New System.Drawing.Size(22, 21)
         Me.digitalOut7.TabIndex = 6
         Me.digitalOut7.UseVisualStyleBackColor = True
         Me.digitalOut7.Visible = False
@@ -391,9 +419,10 @@ Partial Class customInterface
         Me.RatiometricButton.BackColor = System.Drawing.Color.LightSlateGray
         Me.RatiometricButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RatiometricButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.RatiometricButton.Location = New System.Drawing.Point(107, 9)
+        Me.RatiometricButton.Location = New System.Drawing.Point(160, 14)
+        Me.RatiometricButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.RatiometricButton.Name = "RatiometricButton"
-        Me.RatiometricButton.Size = New System.Drawing.Size(141, 40)
+        Me.RatiometricButton.Size = New System.Drawing.Size(212, 62)
         Me.RatiometricButton.TabIndex = 20
         Me.RatiometricButton.TabStop = False
         Me.RatiometricButton.Text = "Ratiometric"
@@ -402,9 +431,10 @@ Partial Class customInterface
         'digitalOut6
         '
         Me.digitalOut6.AutoSize = True
-        Me.digitalOut6.Location = New System.Drawing.Point(13, 101)
+        Me.digitalOut6.Location = New System.Drawing.Point(20, 155)
+        Me.digitalOut6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalOut6.Name = "digitalOut6"
-        Me.digitalOut6.Size = New System.Drawing.Size(15, 14)
+        Me.digitalOut6.Size = New System.Drawing.Size(22, 21)
         Me.digitalOut6.TabIndex = 5
         Me.digitalOut6.UseVisualStyleBackColor = True
         Me.digitalOut6.Visible = False
@@ -412,18 +442,20 @@ Partial Class customInterface
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(58, 9)
+        Me.Label2.Location = New System.Drawing.Point(87, 14)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(43, 13)
+        Me.Label2.Size = New System.Drawing.Size(63, 20)
         Me.Label2.TabIndex = 23
         Me.Label2.Text = "Dig Out"
         '
         'digitalOut5
         '
         Me.digitalOut5.AutoSize = True
-        Me.digitalOut5.Location = New System.Drawing.Point(13, 83)
+        Me.digitalOut5.Location = New System.Drawing.Point(20, 128)
+        Me.digitalOut5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalOut5.Name = "digitalOut5"
-        Me.digitalOut5.Size = New System.Drawing.Size(15, 14)
+        Me.digitalOut5.Size = New System.Drawing.Size(22, 21)
         Me.digitalOut5.TabIndex = 4
         Me.digitalOut5.UseVisualStyleBackColor = True
         Me.digitalOut5.Visible = False
@@ -431,9 +463,10 @@ Partial Class customInterface
         'digitalOut4
         '
         Me.digitalOut4.AutoSize = True
-        Me.digitalOut4.Location = New System.Drawing.Point(13, 63)
+        Me.digitalOut4.Location = New System.Drawing.Point(20, 97)
+        Me.digitalOut4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalOut4.Name = "digitalOut4"
-        Me.digitalOut4.Size = New System.Drawing.Size(15, 14)
+        Me.digitalOut4.Size = New System.Drawing.Size(22, 21)
         Me.digitalOut4.TabIndex = 3
         Me.digitalOut4.UseVisualStyleBackColor = True
         Me.digitalOut4.Visible = False
@@ -441,9 +474,10 @@ Partial Class customInterface
         'digitalOut3
         '
         Me.digitalOut3.AutoSize = True
-        Me.digitalOut3.Location = New System.Drawing.Point(13, 43)
+        Me.digitalOut3.Location = New System.Drawing.Point(20, 66)
+        Me.digitalOut3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalOut3.Name = "digitalOut3"
-        Me.digitalOut3.Size = New System.Drawing.Size(15, 14)
+        Me.digitalOut3.Size = New System.Drawing.Size(22, 21)
         Me.digitalOut3.TabIndex = 2
         Me.digitalOut3.UseVisualStyleBackColor = True
         Me.digitalOut3.Visible = False
@@ -451,9 +485,10 @@ Partial Class customInterface
         'digitalOut2
         '
         Me.digitalOut2.AutoSize = True
-        Me.digitalOut2.Location = New System.Drawing.Point(13, 23)
+        Me.digitalOut2.Location = New System.Drawing.Point(20, 35)
+        Me.digitalOut2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalOut2.Name = "digitalOut2"
-        Me.digitalOut2.Size = New System.Drawing.Size(15, 14)
+        Me.digitalOut2.Size = New System.Drawing.Size(22, 21)
         Me.digitalOut2.TabIndex = 1
         Me.digitalOut2.UseVisualStyleBackColor = True
         Me.digitalOut2.Visible = False
@@ -461,19 +496,21 @@ Partial Class customInterface
         'digitalOut1
         '
         Me.digitalOut1.AutoSize = True
-        Me.digitalOut1.Location = New System.Drawing.Point(13, 3)
+        Me.digitalOut1.Location = New System.Drawing.Point(20, 5)
+        Me.digitalOut1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalOut1.Name = "digitalOut1"
-        Me.digitalOut1.Size = New System.Drawing.Size(15, 14)
+        Me.digitalOut1.Size = New System.Drawing.Size(22, 21)
         Me.digitalOut1.TabIndex = 0
         Me.digitalOut1.UseVisualStyleBackColor = True
         Me.digitalOut1.Visible = False
         '
         'analogText8
         '
-        Me.analogText8.Location = New System.Drawing.Point(3, 185)
+        Me.analogText8.Location = New System.Drawing.Point(4, 285)
+        Me.analogText8.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.analogText8.Name = "analogText8"
         Me.analogText8.ReadOnly = True
-        Me.analogText8.Size = New System.Drawing.Size(92, 20)
+        Me.analogText8.Size = New System.Drawing.Size(136, 26)
         Me.analogText8.TabIndex = 7
         '
         'digitalOutPanel
@@ -494,91 +531,102 @@ Partial Class customInterface
         Me.digitalOutPanel.Controls.Add(Me.digitalOut3)
         Me.digitalOutPanel.Controls.Add(Me.digitalOut2)
         Me.digitalOutPanel.Controls.Add(Me.digitalOut1)
-        Me.digitalOutPanel.Location = New System.Drawing.Point(61, 25)
+        Me.digitalOutPanel.Location = New System.Drawing.Point(92, 38)
+        Me.digitalOutPanel.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.digitalOutPanel.Name = "digitalOutPanel"
-        Me.digitalOutPanel.Size = New System.Drawing.Size(40, 317)
+        Me.digitalOutPanel.Size = New System.Drawing.Size(60, 488)
         Me.digitalOutPanel.TabIndex = 26
         Me.digitalOutPanel.Tag = ""
         '
         'analogText7
         '
-        Me.analogText7.Location = New System.Drawing.Point(3, 159)
+        Me.analogText7.Location = New System.Drawing.Point(4, 245)
+        Me.analogText7.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.analogText7.Name = "analogText7"
         Me.analogText7.ReadOnly = True
-        Me.analogText7.Size = New System.Drawing.Size(92, 20)
+        Me.analogText7.Size = New System.Drawing.Size(136, 26)
         Me.analogText7.TabIndex = 6
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(157, 52)
+        Me.Label3.Location = New System.Drawing.Point(236, 80)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(52, 13)
+        Me.Label3.Size = New System.Drawing.Size(77, 20)
         Me.Label3.TabIndex = 24
         Me.Label3.Text = "Analog In"
         '
         'analogText6
         '
-        Me.analogText6.Location = New System.Drawing.Point(3, 133)
+        Me.analogText6.Location = New System.Drawing.Point(4, 205)
+        Me.analogText6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.analogText6.Name = "analogText6"
         Me.analogText6.ReadOnly = True
-        Me.analogText6.Size = New System.Drawing.Size(92, 20)
+        Me.analogText6.Size = New System.Drawing.Size(136, 26)
         Me.analogText6.TabIndex = 5
         '
         'analogText5
         '
-        Me.analogText5.Location = New System.Drawing.Point(3, 107)
+        Me.analogText5.Location = New System.Drawing.Point(4, 165)
+        Me.analogText5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.analogText5.Name = "analogText5"
         Me.analogText5.ReadOnly = True
-        Me.analogText5.Size = New System.Drawing.Size(92, 20)
+        Me.analogText5.Size = New System.Drawing.Size(136, 26)
         Me.analogText5.TabIndex = 4
         '
         'analogText4
         '
-        Me.analogText4.Location = New System.Drawing.Point(3, 81)
+        Me.analogText4.Location = New System.Drawing.Point(4, 125)
+        Me.analogText4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.analogText4.Name = "analogText4"
         Me.analogText4.ReadOnly = True
-        Me.analogText4.Size = New System.Drawing.Size(92, 20)
+        Me.analogText4.Size = New System.Drawing.Size(136, 26)
         Me.analogText4.TabIndex = 3
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(157, 280)
+        Me.Label4.Location = New System.Drawing.Point(236, 431)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(54, 13)
+        Me.Label4.Size = New System.Drawing.Size(79, 20)
         Me.Label4.TabIndex = 25
         Me.Label4.Text = "Sensitivity"
         '
         'analogText3
         '
-        Me.analogText3.Location = New System.Drawing.Point(3, 55)
+        Me.analogText3.Location = New System.Drawing.Point(4, 85)
+        Me.analogText3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.analogText3.Name = "analogText3"
         Me.analogText3.ReadOnly = True
-        Me.analogText3.Size = New System.Drawing.Size(92, 20)
+        Me.analogText3.Size = New System.Drawing.Size(136, 26)
         Me.analogText3.TabIndex = 2
         '
         'analogText2
         '
-        Me.analogText2.Location = New System.Drawing.Point(3, 29)
+        Me.analogText2.Location = New System.Drawing.Point(4, 45)
+        Me.analogText2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.analogText2.Name = "analogText2"
         Me.analogText2.ReadOnly = True
-        Me.analogText2.Size = New System.Drawing.Size(92, 20)
+        Me.analogText2.Size = New System.Drawing.Size(136, 26)
         Me.analogText2.TabIndex = 1
         '
         'analogText1
         '
-        Me.analogText1.Location = New System.Drawing.Point(3, 3)
+        Me.analogText1.Location = New System.Drawing.Point(4, 5)
+        Me.analogText1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.analogText1.Name = "analogText1"
         Me.analogText1.ReadOnly = True
-        Me.analogText1.Size = New System.Drawing.Size(92, 20)
+        Me.analogText1.Size = New System.Drawing.Size(136, 26)
         Me.analogText1.TabIndex = 0
         '
         'sensitivitySlider
         '
-        Me.sensitivitySlider.Location = New System.Drawing.Point(132, 300)
+        Me.sensitivitySlider.Location = New System.Drawing.Point(198, 462)
+        Me.sensitivitySlider.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.sensitivitySlider.Name = "sensitivitySlider"
-        Me.sensitivitySlider.Size = New System.Drawing.Size(98, 45)
+        Me.sensitivitySlider.Size = New System.Drawing.Size(147, 69)
         Me.sensitivitySlider.TabIndex = 21
         '
         'analogPanel
@@ -591,17 +639,18 @@ Partial Class customInterface
         Me.analogPanel.Controls.Add(Me.analogText3)
         Me.analogPanel.Controls.Add(Me.analogText2)
         Me.analogPanel.Controls.Add(Me.analogText1)
-        Me.analogPanel.Location = New System.Drawing.Point(132, 68)
+        Me.analogPanel.Location = New System.Drawing.Point(198, 105)
+        Me.analogPanel.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.analogPanel.Name = "analogPanel"
-        Me.analogPanel.Size = New System.Drawing.Size(98, 209)
+        Me.analogPanel.Size = New System.Drawing.Size(147, 322)
         Me.analogPanel.TabIndex = 19
         Me.analogPanel.Tag = ""
         '
         'customInterface
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(260, 354)
+        Me.ClientSize = New System.Drawing.Size(381, 518)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.digitalInPanel)
         Me.Controls.Add(Me.RatiometricButton)
@@ -611,9 +660,10 @@ Partial Class customInterface
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.sensitivitySlider)
         Me.Controls.Add(Me.analogPanel)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(276, 393)
-        Me.MinimumSize = New System.Drawing.Size(276, 393)
+        Me.MaximumSize = New System.Drawing.Size(403, 574)
+        Me.MinimumSize = New System.Drawing.Size(403, 574)
         Me.Name = "customInterface"
         Me.ShowIcon = False
         Me.ShowInTaskbar = False

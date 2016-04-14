@@ -9,7 +9,6 @@
         CurrentTextBox0.Text = myDevice.motors(0).Current
         CurrentTextBox1.Text = myDevice.motors(1).Current
     End Sub
-
     Public Sub VelocityChange(ByVal sender As Object, ByVal e As Phidgets.Events.VelocityChangeEventArgs)
         VelocityTextBox0.Text = myDevice.motors(0).Velocity
         VelocityTextBox1.Text = myDevice.motors(1).Velocity
@@ -76,13 +75,15 @@
 
         AddHandler myDevice.Attach, AddressOf Attach
         AddHandler myDevice.Detach, AddressOf Detach
+        AddHandler myDevice.VelocityChange, AddressOf VelocityChange
         AddHandler myDevice.CurrentChange, AddressOf CurrentChange
 
-        Me.Text = newDevice.ToString() + " | " + newDevice.Name
         Me.Show()
     End Sub
 
     Private Sub Attach(ByVal sender As Object, ByVal e As Phidgets.Events.AttachEventArgs)
+        Me.Text = myDevice.ToString() + " | " + myDevice.Name
+
         TarAcelTextBox0.Text = myDevice.motors(0).AccelerationMax.ToString()
         TarAcelTextBox1.Text = myDevice.motors(1).AccelerationMax.ToString()
 
@@ -96,12 +97,6 @@
         VelocityTextBox1.Text = myDevice.motors(1).Velocity.ToString()
     End Sub
     Private Sub Detach(ByVal sender As Object, ByVal e As Phidgets.Events.DetachEventArgs)
-        RemoveHandler myDevice.Attach, AddressOf Attach
-        RemoveHandler myDevice.Detach, AddressOf Detach
-        RemoveHandler myDevice.CurrentChange, AddressOf CurrentChange
-    End Sub
-
-    Private Sub customMotor_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         Dim i As Integer
         If myDevice.Attached = True Then
             For i = 0 To myDevice.motors.Count - 1
@@ -109,9 +104,13 @@
             Next
         End If
 
+        RemoveHandler myDevice.Attach, AddressOf Attach
+        RemoveHandler myDevice.Detach, AddressOf Detach
         RemoveHandler myDevice.CurrentChange, AddressOf CurrentChange
         RemoveHandler myDevice.VelocityChange, AddressOf VelocityChange
+    End Sub
 
+    Private Sub customMotor_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         myDevice.close()
     End Sub
 End Class
